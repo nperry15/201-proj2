@@ -1,0 +1,90 @@
+"""
+File:    proj2.py
+Author:  Nicholas Perry
+Date:    10/29/2019
+Section: 25
+E-mail:  nperry2@umbc.edu
+Description: The main code for the pen and paper game sim.
+Sim is a game where two users make lines between numbers. The first
+person to make a triangle between the points loses.
+"""
+from proj2_ui import print_board
+
+def validate_input(user_input):
+    """
+    :param user_input: some list of numbers
+    :return: False if length of the list is not 2 or does not have all numbers
+	     in the list on the interval 1 - 6, true for all else
+    """
+
+
+def in_order(user_list):
+    """
+    Makes the given list into numerical order
+    :param user_list: a list from the user
+    :return: the list in numerical order
+    """
+
+
+def input_to_list(standard_input):
+    """
+    Changes the standard user_input into a standard list
+    :param user_input: the user input
+    :return: a standard list
+    """
+
+
+def check_is_valid_line(used_lines, user_list):
+    """
+    Checks to see if the user_list matches any lists already covered
+    :param used_lines: all of the already covered lines
+    :param user_list: the list trying to cover a line
+    :return: true if the line has not been covered already, false for all else
+    """
+
+def combine_lists(list_one, list_two):
+    """
+    Combines the values of two 2D lists into one 2D list
+    :param list_one: the first 2D list
+    :param list_two: the second 2D list
+    :return: one 2D list
+    """
+
+
+def check_for_triangle(player_list):
+    """
+    Checks to see if the list makes a triangle
+    :param player_list: the list of moves the player has made
+    :return: true if the list does make a triangle, false for all else
+    """
+
+
+if __name__ == '__main__':
+    player_one_char = input("Hello, what character would player 1 like to use?")
+    player_two_char = input("Hello, what character would player 2 like to use?")
+
+    player_one_moves = []
+    player_two_moves = []
+    combined_list = []
+
+    is_game_over = False
+    player_turn = 1
+
+
+    while not is_game_over:
+        is_skip_section = False
+	print_board(player_one_moves, player_one_char, player_two_moves, player_two_char)
+        line = input("Enter a line for player %d:" %  player_turn)
+
+        list_of_line = input_to_list(line)
+	if validate_input(list_of_line):
+	    if player_turn == 1 and check_is_valid_line(combined_list, list_of_line):
+	        player_one_list = player_one_moves.append(list_of_line)
+		player_turn = 2
+	elif player_turn == 2 and check_is_valid_line(combined_list, list_of_line):
+	    player_two_list = player_two_moves.append(list_of_line)
+	    player_turn = 1
+	else:
+            print("Not a valid line")
+	    is_skip_section = True
+
